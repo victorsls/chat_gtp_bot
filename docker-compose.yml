@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    build: .
+    command: poetry run python main.py
+    env_file:
+      - .env
+
+  tests:
+    build:
+      context: .
+    command: poetry run pytest tests
+    environment:
+      - PYTHONPATH=/app
+      - OPENAI_API_KEY=FAKE_KEY
