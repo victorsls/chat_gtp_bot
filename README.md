@@ -15,7 +15,7 @@ Este é um projeto de um chat bot implementado em Python, utilizando a bibliotec
 5. Execute o seguinte comando para construir a imagem Docker e iniciar a aplicação:
 
    ```shell
-   docker-compose run app
+   docker compose run app
    ```
 
 6. A aplicação será iniciada e você verá as mensagens de boas-vindas no terminal.
@@ -29,14 +29,14 @@ Este é um projeto de um chat bot implementado em Python, utilizando a bibliotec
 3. Execute o seguinte comando para executar os testes:
 
    ```shell
-   docker-compose run tests
+   docker compose run tests
    ```
 
 4. Os testes serão executados e você verá a saída dos resultados no terminal.
 
 Lembre-se de ter o Docker e o Docker Compose corretamente instalados em sua máquina para poder executar os comandos.
 
-**Nota:** Antes de executar o projeto, é necessário adicionar sua chave de API da OpenAI no arquivo `.env` na variável `OPENAI_API_KEY`. Certifique-se de fornecer uma chave válida para garantir o funcionamento correto da aplicação.
+**Nota:** Antes de executar o projeto, é necessário adicionar sua chave de API da OpenAI no arquivo `.env` na variável `OPENAI_API_KEY`. Certifique-se de fornecer uma chave válida para garantir o funcionamento correto da aplicação. Se a versão do seu docker compose for a mais antiga, utilize o comando *docker-compose* ao invés de *docker compose*. 
 
 ## Arquitetura e Design do Chat Bot
 A arquitetura do chat bot consiste em duas principais classes: `ChatGPT` e `ChatBot`. A classe `ChatGPT` interage com o modelo OpenAI ChatGPT para gerar respostas com base no contexto da conversa. A classe `ChatBot` processa as mensagens dos usuários, utiliza correspondência de padrões para respostas automáticas e integra as respostas geradas pelo `ChatGPT` para fornecer respostas mais elaboradas e contextuais.
