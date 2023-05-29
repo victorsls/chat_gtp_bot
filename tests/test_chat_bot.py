@@ -2,15 +2,18 @@ import pytest
 from unittest import mock
 from src.chat_bot import ChatBot
 
+
 @pytest.fixture
 def chat_bot():
     return ChatBot()
+
 
 def test_process_message_with_auto_response(chat_bot):
     message = "oi"
     expected_response = "Olá! Como posso ajudar?"
     response = chat_bot.process_message(message)
     assert response == expected_response
+
 
 def test_process_message_with_gpt_response(chat_bot):
     message = "Qual é o clima hoje?"
@@ -19,6 +22,7 @@ def test_process_message_with_gpt_response(chat_bot):
         mock_get_response.return_value = expected_response
         response = chat_bot.process_message(message)
         assert response == expected_response
+
 
 def test_run_chat_bot_with_exit(chat_bot, capsys):
     user_input = "sair"
@@ -29,6 +33,7 @@ def test_run_chat_bot_with_exit(chat_bot, capsys):
 
     captured = capsys.readouterr()
     assert expected_output in captured.out
+
 
 def test_run_chat_bot_with_response(chat_bot, capsys):
     user_input = "Qual é o seu nome?"

@@ -2,9 +2,11 @@ import pytest
 from unittest import mock
 from src.chat_gpt import ChatGPT
 
+
 @pytest.fixture
 def chat_gpt():
     return ChatGPT()
+
 
 def test_get_response(chat_gpt):
     message = "Qual é o clima hoje?"
@@ -15,6 +17,7 @@ def test_get_response(chat_gpt):
         response = chat_gpt.get_response(message)
 
     assert response == expected_response
+
 
 def test_get_response_with_empty_context(chat_gpt):
     message = "Olá!"
