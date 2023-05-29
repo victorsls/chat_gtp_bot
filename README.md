@@ -15,7 +15,7 @@ Este é um projeto de um chat bot implementado em Python, utilizando a bibliotec
 5. Execute o seguinte comando para construir a imagem Docker e iniciar a aplicação:
 
    ```shell
-   docker-compose up app
+   docker-compose run app
    ```
 
 6. A aplicação será iniciada e você verá as mensagens de boas-vindas no terminal.
