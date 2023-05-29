@@ -27,13 +27,11 @@ class ChatBot:
 
         self.chat = Chat(patterns)
 
-    def process_message(self, message):
+    def process_message(self, message: str):
         response = self.chat.respond(message)
-
         if response:
             return response
-        else:
-            return self.chatgpt.get_response(message)
+        return self.chatgpt.get_response(message)
 
     def run_chat_bot(self):
         print("Bem-vindo ao Chat Bot!")

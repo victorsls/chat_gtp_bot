@@ -8,20 +8,20 @@ class ChatGPT:
     def __init__(self):
         self.context = ""
 
-    def get_response(self, message):
-        self.context += message + "\n"
+    def get_response(self, message: str):
+        self.context += f"{message} \n"
 
         response = openai.Completion.create(
-            engine="text-davinci-003",
+            engine=os.environ.get("OPENAI_ENGINE", "text-davinci-003"),
             prompt=self.context,
-            max_tokens=100,
-            temperature=0.3,
-            n=1,
-            stop=None,
-            timeout=20,
+            max_tokens=int(os.environ.get("OPENAI_MAX_TOKENS", 100)),
+            temperature=float(os.environ.get("OPENAI_TEMPERATURE", 0.3)),
+            n=int(os.environ.get("OPENAI_N", 1)),
+            stop=os.environ.get("OPENAI_STOP", None),
+            timeout=int(os.environ.get("OPENAI_TIMEOUT", 20)),
         )
         if response.choices:
             response_text = response.choices[0].text.strip()
-            self.context += response_text + "\n"
+            self.context += f"{response_text} \n"
 
         return response_text
